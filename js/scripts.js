@@ -3,13 +3,23 @@ var registeredUsers = []; // this array stores valid usernames until the next pa
 function validateForm(e){
     e.preventDefault(); // stop the submit button from refreshing the page
     console.log('validating....');
-
     console.log('user name: ' + validateUsername());
+    console.log('first name: ' + validateFirstName());
+    console.log('last name: ' + validateLastName());
     console.log('email: ' + validateEmail());
     console.log('password: ' + validatePassword());
+    console.log('phone number: ' + validatePhone());
 
-    if (validateUsername() && validateEmail() && validatePassword()) {
+    if (validateUsername() && validateFirstName() && validateLastName() && validateEmail() && validatePassword() && validatePhone()) {
         var _newUser = getUserName();   
+
+        registeredUsers.push(_newUser);
+        renderRegisteredUsers();
+
+        if (registeredUsers.length > 5) {
+            registeredUsers.shift();
+        }
+        
         // add code to update registeredUsers array with new user and call render function
         // TODO
         document.registration.reset(); // reset form input fields
@@ -27,11 +37,26 @@ function renderRegisteredUsers() {
 /**
  * this function supposely validates submitted username
  * @returns [Boolean] true when valid, false otherwise
+ * function checkSpace(sample) {
+    return sample === '' || sample.indexOf(' ') > -1;
  */
 function validateUsername(){
     var _userName = getUserName();
     
     return !checkSpace(_userName);
+}
+
+function validateFirstName(){
+    var _firstName = getFirstName(); 
+    
+    return !checkEmpty(_firstName);
+
+}
+
+function validateLastName(){
+    var _lastName = getLastName();
+    
+    return !checkEmpty(_lastName);
 }
 
 /**
@@ -65,21 +90,42 @@ function validateEmail(){
     return true;
 }
 
-/**
- * this function supposely validates submitted password
- * if password and confirmPassword do not match, return false 
- * 
- * @returns [Boolean] true when valid, false otherwise
- */
 function validatePassword() {
     var _password = getPassword();
     var _confirmPassword = getConfirmPassword();
 
+
     if (_password !== _confirmPassword) {
+        return false;
+    }
+    if (_password.length < 8) {
+        return false;
+    }
+
+    if(!_password.match("[0-9]")) {
+        return false;
+    }
+
+    if(!_password.match("[A-ZÅÄÖ]")) {
         return false;
     }
 
     return true;
+}
+
+function validatePhone() {
+    var _phone = getPhone();
+
+    if (_phone.length < 6) {
+        return false;
+    }
+
+    if (isNaN(_phone)) {
+        return false;
+    }
+
+    return true;
+
 }
 
 /**
@@ -90,6 +136,10 @@ function validatePassword() {
  */
 function checkSpace(sample) {
     return sample === '' || sample.indexOf(' ') > -1;
+}
+
+function checkEmpty(sample) {
+    return sample === '';
 }
 
 /**
@@ -107,14 +157,50 @@ function getUserName() {
     }   
 }
 
+function getFirstName() {
+    if (typeof(document.registration.firstname.value) === 'undefined') {
+        return '';
+    } else {
+        return document.registration.firstname.value;
+    }   
+}
+
+function getLastName() {
+    if (typeof(document.registration.lastname.value) === 'undefined') {
+        return '';
+    } else {
+        return document.registration.lastname.value;
+    }   
+}
+
 function getEmail() {
-    // TODO
+    if (typeof(document.registration.email.value) === 'undefined') {
+        return '';
+    } else {
+        return document.registration.email.value;
+    } 
 }
 
 function getPassword() {
-    // TODO
+    if (typeof(document.registration.password.value) === 'undefined') {
+        return '';
+    } else {
+        return document.registration.password.value;
+    } 
 }
 
 function getConfirmPassword() {
-    // TODO
+    if (typeof(document.registration.password_confirm.value) === 'undefined') {
+        return '';
+    } else {
+        return document.registration.password_confirm.value;
+    } 
+}
+
+function getPhone() {
+    if (typeof(document.registration.phone.value) === 'undefined') {
+        return '';
+    } else {
+        return document.registration.phone.value;
+    } 
 }
