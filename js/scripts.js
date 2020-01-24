@@ -49,7 +49,7 @@ function renderRegisteredUsers() {
 /**
  * this function supposely validates submitted username
  * @returns [Boolean] true when valid, false otherwise
- */
+ */ 
 function validateUsername(){
     var _userName = getUserName();
     
