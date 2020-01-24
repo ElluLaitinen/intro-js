@@ -106,34 +106,36 @@ function validatePassword() {
   if (_password.length < 8) {
     return false;
   }
-  if (checkForNumber(_password) === false) {
+  if (checkForNumber(_password)) {
     return false;
   }
   if (checkForCapitalLetter(_password)) {
     return false;
   }
 
-  /*if(!_password.match("[0-9]")) {
-        return false;
-    }
+  /*if (!_password.match("[0-9]") === true) {
+    return false;
+  }
 
-    if(!_password.match("[A-ZÅÄÖ]")) {
-        return false;
-    } */
-
+  if (!_password.match("[A-ZÅÄÖ]")) {
+    return false;
+  }
+*/
   return true;
 }
 
 function checkForNumber(sample) {
-  if (sample.match(/[0-9]+/g).length > 0) {
-    return true;
+  if (sample.match(/[0-9]+/g) === null) {
+    return false;
   }
+  return true;
 }
 
 function checkForCapitalLetter(sample) {
-  if (sample.match(/[A-ZÅÄÖ]+/g).length > 0) {
-    return true;
+  if (sample.match(/[A-Ö]+/g) === null) {
+    return false;
   }
+  return true;
 }
 
 function validatePhone() {
