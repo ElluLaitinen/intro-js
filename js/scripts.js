@@ -107,6 +107,7 @@ function validatePassword() {
     return false;
   }
   if (checkForNumber(_password)) {
+    
     return false;
   }
   if (checkForCapitalLetter(_password)) {
