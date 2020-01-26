@@ -36,6 +36,5 @@ function divide(a, b) {
 }
 
 function pivalue() {
-    var pivalue = 3.14;
-    console.log(pivalue);
+    return "3.14";
 }
