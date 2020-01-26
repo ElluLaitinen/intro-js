@@ -11,10 +11,12 @@ function calculate(order) {
         result = multiply(firstInput, secondInput);
     } else if (order === 'divide') {
         result = divide(firstInput, secondInput);
+    } else if (order === 'pow') {
+        result = pow(firstInput, secondInput);
     }
-    
 
     document.getElementById('final-result').innerText = result;
+
 }
 
 function add(a, b) {
@@ -27,14 +29,21 @@ function subtract(a, b) {
 
 function multiply(a, b) {
     return a * b;
-
 }
 
 function divide(a, b) {
     return a/b;
+}
 
+function pow(a, b) {
+    return Math.pow(a,b);
+}
+
+function square() { 
+    var result = parseInt(document.getElementById('final-result').innerText);
+    document.getElementById('sqrt').innerText = Math.sqrt(result);
 }
 
 function pivalue() {
-    return "3.14";
+    document.getElementById('pi').innerText = Math.PI;
 }
