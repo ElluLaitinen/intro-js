@@ -14,12 +14,29 @@
   }
 
   function getNext() {
-    // TODO
+    items[slide].classList.remove("active");
+
+    if (slide === totalItems - 1) {
+      slide = 0;
+    } else {
+      slide++;
+    }
+    items[slide].classList.add("active");
   }
 
+  // TODO
+
   function getPrev() {
-    // TODO
+    items[slide].classList.remove("active");
+    if (slide === 0) {
+      slide = 4;
+    } else {
+      slide--;
+    }
+
+    items[slide].classList.add("active");
   }
+  // TODO
 
   function initSlider() {
     // setInitialClasses();
