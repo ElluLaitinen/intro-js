@@ -1,5 +1,9 @@
 var registeredUsers = []; // this array stores valid usernames until the next pageload
 
+$(document).ready(function() {
+  $("#registerBtn").on("click", validateForm);
+});
+
 function validateForm(e) {
   e.preventDefault(); // stop the submit button from refreshing the page
   console.log("validating....");
@@ -129,16 +133,16 @@ function validatePassword() {
 
 function checkForNumber(sample) {
   if (sample.match(/[0-9]+/g) === null) {
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 function checkForCapitalLetter(sample) {
   if (sample.match(/[A-Ö]+/g) === null) {
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 function validatePhone() {
@@ -180,17 +184,17 @@ function getUserName() {
   if (typeof $('[name="username"]').val() === "undefined") {
     return "";
   } else {
-    return document.registration.username.value;
+    return $('[name="username"]').val();
   }
 }
-
+/* document.registration.username.value; */
 /*typeof document.registration.username.value === "undefined"*/
 
 function getFirstName() {
   if (typeof $('[name="firstname"]').val() === "undefined") {
     return "";
   } else {
-    return document.registration.firstname.value;
+    return $('[name="firstname"]').val();
   }
 }
 
@@ -200,7 +204,7 @@ function getLastName() {
   if (typeof $('[name="lastname"]').val() === "undefined") {
     return "";
   } else {
-    return document.registration.lastname.value;
+    return $('[name="lastname"]').val();
   }
 }
 
@@ -210,7 +214,7 @@ function getEmail() {
   if (typeof $('[name="email"]').val() === "undefined") {
     return "";
   } else {
-    return document.registration.email.value;
+    return $('[name="email"]').val();
   }
 }
 
@@ -220,7 +224,7 @@ function getPassword() {
   if (typeof $('[name="password"]').val() === "undefined") {
     return "";
   } else {
-    return document.registration.password.value;
+    return $('[name="password"]').val();
   }
 }
 /*typeof document.registration.password.value === "undefined"*/
@@ -229,7 +233,7 @@ function getConfirmPassword() {
   if (typeof $('[name="password_confirm"]').val() === "undefined") {
     return "";
   } else {
-    return document.registration.password_confirm.value;
+    return $('[name="password_confirm"]').val();
   }
 }
 /*typeof document.registration.password_confirm.value === "undefined"*/
@@ -238,7 +242,7 @@ function getPhone() {
   if (typeof $('[name="phone"]').val() === "undefined") {
     return "";
   } else {
-    return document.registration.phone.value;
+    return $('[name="phone"]').val();
   }
 }
 /*typeof document.registration.phone.value === "undefined"*/
