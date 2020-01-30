@@ -6,15 +6,20 @@
 
   // Set event listeners
   function setEventListeners() {
-    var next = document.getElementsByClassName("slider__button--next")[0],
-      prev = document.getElementsByClassName("slider__button--prev")[0];
+    next = $("slider_button_next")[0];
+    prev = $("slider_button_prev")[0];
+    /*var next = document.getElementsByClassName("slider__button--next")[0],
+      prev = document.getElementsByClassName("slider__button--prev")[0];*/
 
-    next.addEventListener("click", getNext);
-    prev.addEventListener("click", getPrev);
+    $(next).on("click", getNext);
+    $(prev).on("click", getPrev);
+
+    /*next.addEventListener("click", getNext);
+    prev.addEventListener("click", getPrev);*/
   }
 
   function getNext() {
-    items[slide].classList.remove("active");
+    /*items[slide].classList.remove("active");*/
 
     if (slide === totalItems - 1) {
       slide = 0;
