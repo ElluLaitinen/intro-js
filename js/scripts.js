@@ -35,10 +35,13 @@ function validateForm(e) {
 
 function renderRegisteredUsers() {
   registeredUsers.forEach(function(registeredUser) {
-    var _newUser = document.createElement("li");
+    /* var _newUser = document.createElement("li");
     _newUser.innerHTML = registeredUser;
-    document.getElementById("registered-users").appendChild(_newUser);
+    document.getElementById("registered-users").appendChild(_newUser); */
   });
+  $("<li>")
+    .text(JSON.stringify(registeredUser))
+    .appendTo("#registered-users");
 }
 
 /**
@@ -107,7 +110,6 @@ function validatePassword() {
     return false;
   }
   if (checkForNumber(_password)) {
-    
     return false;
   }
   if (checkForCapitalLetter(_password)) {
@@ -175,57 +177,68 @@ function checkEmpty(sample) {
  * @returns [Boolean] true when valid, false otherwise
  */
 function getUserName() {
-  if (typeof document.registration.username.value === "undefined") {
+  if (typeof $('[name="username"]').val() === "undefined") {
     return "";
   } else {
     return document.registration.username.value;
   }
 }
 
+/*typeof document.registration.username.value === "undefined"*/
+
 function getFirstName() {
-  if (typeof document.registration.firstname.value === "undefined") {
+  if (typeof $('[name="firstname"]').val() === "undefined") {
     return "";
   } else {
     return document.registration.firstname.value;
   }
 }
 
+/*typeof document.registration.firstname.value === "undefined"*/
+
 function getLastName() {
-  if (typeof document.registration.lastname.value === "undefined") {
+  if (typeof $('[name="lastname"]').val() === "undefined") {
     return "";
   } else {
     return document.registration.lastname.value;
   }
 }
 
+/*typeof document.registration.lastname.value === "undefined"*/
+
 function getEmail() {
-  if (typeof document.registration.email.value === "undefined") {
+  if (typeof $('[name="email"]').val() === "undefined") {
     return "";
   } else {
     return document.registration.email.value;
   }
 }
 
+/*typeof document.registration.email.value === "undefined"*/
+
 function getPassword() {
-  if (typeof document.registration.password.value === "undefined") {
+  if (typeof $('[name="password"]').val() === "undefined") {
     return "";
   } else {
     return document.registration.password.value;
   }
 }
+/*typeof document.registration.password.value === "undefined"*/
 
 function getConfirmPassword() {
-  if (typeof document.registration.password_confirm.value === "undefined") {
+  if (typeof $('[name="password_confirm"]').val() === "undefined") {
     return "";
   } else {
     return document.registration.password_confirm.value;
   }
 }
+/*typeof document.registration.password_confirm.value === "undefined"*/
 
 function getPhone() {
-  if (typeof document.registration.phone.value === "undefined") {
+  if (typeof $('[name="phone"]').val() === "undefined") {
     return "";
   } else {
     return document.registration.phone.value;
   }
 }
+/*typeof document.registration.phone.value === "undefined"*/
