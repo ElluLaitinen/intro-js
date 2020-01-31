@@ -19,7 +19,7 @@
   }
 
   function getNext() {
-    /*items[slide].classList.remove("active");*/
+    items[slide].classList.remove("active");
 
     if (slide === totalItems - 1) {
       slide = 0;
