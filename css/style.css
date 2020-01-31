@@ -409,7 +409,7 @@ em {
   animation: a 1s;
 }
 
-.product_name_mw {
+#products .product-list .product-item .product-name[data-type="mineralwater"] {
   background: green;
 }
 @-webkit-keyframes a {
