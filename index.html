@@ -248,9 +248,11 @@ jQuery(document).ready(function() {
   </script>
 
 <script>
-function colorChange() {
-
-}$('[data-type="proteinbar"]').;
+$('[data-type="proteinbar"]').css('background-color', 'blue');
+$('.card-text').each(function () {
+  var text = $(this);
+  text.html(text.html().replace(/^(\w+)/, '<b>$1</b>'));
+});
 
 </script>
 
