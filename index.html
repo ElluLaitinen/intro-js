@@ -30,7 +30,7 @@
         <li><a href="#products">products</a></li>
         <li><a href="#guarantee">guarantee</a></li>
         <li><a href="#people">people</a></li>
-        <button type="button">Print</button>
+       
       </ul><!-- navbar -->     
     </div><!-- container nav-elements -->
   </nav>
@@ -146,7 +146,7 @@
   <header class="imageheader"></header>
   <div class="container">
     <h2 class="headline">People</h2>
-    <div class="people-cards">
+    <div class="people-cards">     
       <div class="person-card">
         <img src="images/employees/HenryTwill.jpg" alt="HenryTwill Photo">
         <div class="card-info">
@@ -190,8 +190,7 @@
           <h4 class="card-title">Director of Sales</h4>
         </div>
         <p class="card-text">Angela Hashton joined the company in 2009, to <em>initiate new relationships</em> for our growing line of H+ Sports active apparel. After being with the company for a year, she was promoted to Director of Sales. Angela is the drive behind the H+ Sport <em>ACTIVE product line</em> and has an uncanny ability to formulate strategies that have helped build our unified sales force. <em>Educating people</em> about health and nutrition is something that Angela holds dear.</p>
-      </div><!-- person-card -->
-
+      </div><!-- person-card --> 
       <div class="person-card">
         <img src="images/employees/MichaelLewiston.jpg" alt="MichaelLewiston Photo">
         <div class="card-info">
@@ -249,10 +248,22 @@ jQuery(document).ready(function() {
 
 <script>
 $('[data-type="proteinbar"]').css('background-color', 'blue');
+
+function printThisPage() {
+  window.print();
+}
+
+$('.print-page-btn').click(printThisPage);
+
 $('.card-text').each(function () {
   var text = $(this);
   text.html(text.html().replace(/^(\w+)/, '<b>$1</b>'));
 });
+
+$('.person-card:contains(Michael Lewiston)').prependTo('.people-cards');
+
+$('.navbar li a:contains(people)').text('personnel');
+$('#people:contains(people)').text('personnel');
 
 </script>
 
