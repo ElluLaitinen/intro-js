@@ -585,7 +585,7 @@ em {
   }
 }
 
-#button {
+.fixed-button {
   display: inline-block;
   background-color: #ff9800;
   width: 50px;
@@ -600,15 +600,35 @@ em {
   z-index: 1000;
 }
 
-#button:hover {
+.scroll-top-btn {
+  right: 30px;
+  width: 50px;
+}
+
+.print-page-btn {
+  right: 100px;
+  color: white;
+  width: 150px;
+  padding: 10px 0;
+}
+
+.weather-btn {
+  right: 300px;
+  color: white;
+  width: 400px;
+  height: 70px;
+  padding: 10px 5px;
+}
+
+.fixed-button:hover {
   cursor: pointer;
   background-color: #555;
 }
-#button:active {
+.fixed-button:active {
   background-color: #555;
 }
 
-#button::after {
+.scroll-top-btn::after {
   content: "\f077";
   font-family: FontAwesome;
   font-weight: normal;

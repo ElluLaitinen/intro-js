@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>HPlus Sport</title>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script type="text/JavaScript" src="path/to/jquery.print.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>  
   <link rel="stylesheet" href="css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -226,7 +225,9 @@
 </div><!-- container -->
 </footer><!-- footer -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<a id="button"></a>
+<a id="button" class="fixed-button scroll-top-btn"></a>
+<a class="fixed-button print-page-btn">Print this page</a>
+<a class="fixed-button weather-btn">Today's weather</a>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 jQuery(document).ready(function() {
@@ -244,6 +245,7 @@ jQuery(document).ready(function() {
     $('html, body').animate({scrollTop:0},'300');
   });
 });
+
   </script>
 
 <script>
@@ -254,6 +256,16 @@ function printThisPage() {
 }
 
 $('.print-page-btn').click(printThisPage);
+
+$.ajax({
+  url: 'https://api.openweathermap.org/data/2.5/weather?q=edinburgh&APIKEY=6eeeecee1129dccf510eca2ea3b3d502&units=metric',
+}).done(function(resp) {
+  console.log(resp.name + ' today is ' + resp.main.temp + ' degrees Celcius and it feels like ' + resp.main.feels_like);
+  
+  $('.weather-btn').html(resp.name + ' today is ' + resp.main.temp + ' degrees Celcius and it feels like ' + resp.main.feels_like);
+});
+
+
 
 $('.card-text').each(function () {
   var text = $(this);
