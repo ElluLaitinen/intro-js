@@ -224,25 +224,33 @@
 })(jQuery);
 
 
-/* document.getElementById("social").addEventListener("mouseleave", mouseLeave);
+document.addEventListener('mouseleave', function () {
+  document.getElementById('popup1').style.visibility = 'visible';
 
-function mouseLeave() {
-  document.getElementById("social").style.color = "blue";
-} */
+});
 
-var eventTarget = document.querySelector("#popup1");
-var mouseTarget = document.querySelector("h1");
-var close = document.querySelector('[id="popup1"] [class="close"]');
+document.getElementById('popup1').getElementsByClassName('close')[0].addEventListener('click', function () {
+  document.getElementById('popup1').style.visibility = 'hidden';
 
-function makeVisible() {
-  eventTarget.style.visibility = "visible";
 
-}
+  document.getElementById('subscribe_popup').getElementsByClassName('button')[0].addEventListener('click', function () {
+    var userInput = 'email';
+    var validationResult = true;
 
-function makeInvisible() {
-  eventTarget.style.visibility = "hidden";
-}
+    if (validationResult === true) {
+      document.getElementById('popup1').style.visibility = 'hidden';
+      document.getElementById('popup2').style.visibility = 'visible';
 
-mouseTarget.addEventListener("mouseleave", makeVisible);
-close.addEventListener("click", makeInvisible);
+    };
 
+    document.getElementById('popup2').getElementsByClassName('close')[0].addEventListener('click', function () {
+      document.getElementById('popup2').style.visibility = 'hidden';
+
+
+
+    });
+
+
+  });
+
+});
