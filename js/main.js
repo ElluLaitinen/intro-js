@@ -254,3 +254,17 @@ document.getElementById('popup1').getElementsByClassName('close')[0].addEventLis
   });
 
 });
+
+document.addEventListener('click', function () {
+  document.getElementById('popup3').style.visibility = 'visible';
+
+});
+
+var event = new Event('scroll');
+
+$('#popup3 .popup').scrollBottom()
+
+$('#popup3 .popup').height() == $('#popup3 .popup').height()
+
+
+document.getElementById('popup3').getElementsByClassName('close')[0].style.visibility = "visible";
